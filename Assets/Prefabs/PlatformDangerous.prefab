@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2406844687685851899}
   - component: {fileID: 1623405861581956281}
-  - component: {fileID: 4518175597902354219}
+  - component: {fileID: 2190577154841719573}
+  - component: {fileID: 5273952428761544846}
   m_Layer: 0
   m_Name: PlatformDangerous
-  m_TagString: Untagged
+  m_TagString: DeadlyPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,16 +86,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &4518175597902354219
-BoxCollider:
+--- !u!61 &2190577154841719573
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912752097179398382}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.020938396, y: -0.11865145}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.77, y: 2.72}
+    newSize: {x: 4.77, y: 2.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.102473, y: 1.6160121, z: 0.2}
-  m_Center: {x: 0.12837112, y: -0.47497243, z: 0}
+  m_Size: {x: 4.3372717, y: 1.3938943}
+  m_EdgeRadius: 0
+--- !u!114 &5273952428761544846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912752097179398382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46764fbfa55ea34f8792ba3a021c4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

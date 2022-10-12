@@ -33,7 +33,7 @@ public class CamMove : MonoBehaviour
         {
             speed = maxSpeed;
         }
-        Debug.Log(speed);
+       
     }
 
 

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlaneMove : MonoBehaviour
 {
- 
-    PolygonCollider2D planeRb;
-    private bool planeMovement = true;
+
+    PolygonCollider2D planeCollider;
+    private bool planeMovement = false;
+    float min, max;
+    float randomSpeed;
     public bool PlaneMovement
     {
         get { return planeMovement; }
@@ -15,23 +17,46 @@ public class PlaneMove : MonoBehaviour
 
     void Start()
     {
-         planeRb=GetComponent<PolygonCollider2D>();    
+        planeCollider = GetComponent<PolygonCollider2D>();
+        randomSpeed = Random.Range(0.5f, 1f);
+        float objectWidht = planeCollider.bounds.size.x / 2;
+        if (transform.position.x > 0)
+        {
+            min = objectWidht;
+            max = ScreenCalculator.instance.Widht - objectWidht;
+
+        }
+        else
+        {
+            min = -ScreenCalculator.instance.Widht + objectWidht;
+            max = -objectWidht;
+
+        }
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         Move();
     }
 
-    private void Move()
+    private void Move()//move in specific area
     {
         if (planeMovement)
         {
-            float forcePlane = Mathf.PingPong(Time.time, 3f);
-            Debug.Log(forcePlane + " plane kuvvet");
+            float forcePlane = Mathf.PingPong(Time.time*randomSpeed, max - min) + min;
+          
             transform.position = new Vector2(forcePlane, transform.position.y);
         }
- 
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Legs"))
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.parent = transform;//make a move
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerController>().ResetJump();//reset bouncing when you hit the ground
+        }
     }
 }
